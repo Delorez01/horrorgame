@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Побег из отеля</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+		@font-face {
+			font-family: aaa;
+			src: url(1.otf)
+		}	
+
+		.start {
+			background-image: url("start.png");
+			background-size: 100% 100%;
+			height: 650px;
+			padding-top: 300px;
+			text-align: center;
+			color: white;
+			font-family: aaa;
+			word-spacing: 10px;
+			letter-spacing: 3px;
+			font-size: 30px;
+			display: none;
+		}
+
+		.btn {
+			height: 60px;
+			width: 300px;
+			font-family: aaa;
+			color: white;
+			border-radius: 50px;
+			background: linear-gradient(90deg, rgba(14,8,92,1) 26%, rgba(77,6,115,1) 87%);
+			border: 2px #420996 solid;
+			letter-spacing: 3px;
+			font-size: 30px;
+
+		}
+
+		.coridor {
+			background-image: url("doors.png");
+			background-size: 100% 100%;
+			height: 950px;
+			width: 100%;
+			display: none;
+		}
+
+		.door {
+			background-image: url("door.png");
+			background-size: 100% 100%;
+			height: 400px;
+			width: 200px;
+			position: absolute;
+			transition: 0.5s;
+			=
+		}
+
+		.door:hover {
+			height: 420px;
+			width: 220px;
+		}
+
+		.room {
+			background-image: url("room.png");
+			background-size: 100% 100%;
+			height: 950px;
+			width: 100%;
+			display: none;
+		}
+
+		.begin {
+			background-image: url("begining.png");
+			background-size: 100% 100%;
+			height: 950px;
+			width: 100%;
+			display: none;
+		}
+		.lom {
+			background-image: url("lom.png");
+			background-size: 100% 100%;
+			height: 100px;
+			width: 100px;
+			position: absolute;
+			top: 290px;
+			left: 760px;
+			transform: rotate(310deg);
+			transition: 0.5s;
+			opacity: 0.6;
+		}
+		.lom:hover {
+			height: 110px;
+			width: 110px;
+			opacity: 1;
+		}
+
+
+		.kfl {
+			background-image: url("kfl.png");
+			background-size: 100% 100%;
+			height: 80px;
+			width: 110px;
+			position: absolute;
+			top: 380px;
+			left: 1300px;
+			transition: 0.5s;
+		}
+		.kfl:hover {
+			height: 90px;
+			width: 120px;
+		}
+
+		.kfd {
+			background-image: url("kfd.png");
+			background-size: 100% 100%;
+			height: 80px;
+			width: 150px;
+			position: absolute;
+			top: 660px;
+			left: 700px;
+			transition: 0.5s;
+			opacity: 0.2;
+		}
+		.kfd:hover {
+			height: 90px;
+			width: 160px;
+			opacity: 1;
+		}
+
+		.time {
+			position: absolute;
+			color: white;
+		}
+
+		.exit {
+			background-image: url("exit.jpg");
+			background-size: 100% 100%;
+			display: none;
+			height: 950px;
+			width: 100%;
+		}
+
+		.leave {
+			font-family: aaa; 
+			width:250px; 
+			height: 60px; 
+			font-size: 30px; 
+			border-radius: 10px;
+			background: black; 
+			color: white; 
+			border: 2px gray solid; 
+			position: absolute;
+			opacity: 0.9;
+			transition: 0.5s;
+			top: 450px;
+			left: 600px;
+		}
+
+		.leave:hover {
+			width: 270px;
+			height: 70px;
+			opacity: 1;
+		}
+
+		.finish {
+			background-image: url("finish.jpg");
+			background-size: 100% 100%;
+			height: 950px;
+			width: 100%;
+			display: none;
+		}
+		.scream {
+			background-image: url("scream.jpg");
+			background-size: 100% 100%;
+			height: 950px;
+			display: none;
+		}
+		.o {
+			background-image: url("o.jpg");
+			background-size: 100% 100%;
+			height: 950px;
+		}
+	</style>
+</head>
+<body>
+	<div class="o">
+		<button class="beg" style="font-family: aaa; width:250px; height: 60px; font-size: 30px; border-radius: 10px; background: black; color: white; border: 2px gray solid; position: absolute; top: 400px; left: 750px;">START</button>
+	</div>
+	<div class="all">
+		<div class="time" style="display: none;">
+			<h2>У тебя есть <span class="timer">45</span> секунд, чтобы сбежать от монстра.</h2>
+		</div>
+		<div class="begin">
+			<h1 style="color: white; text-align: center;">Пред история</h1>
+			<h3 style="color: white; font-family: Georgia, serif; margin-top: 200px; line-height: 30px;">Вы ребенок 13-ти лет. Вы съели пиццу и поехали домой на автобусе. В автобусе вам стало плохо, а потом вы уснули. А когда вы проснулись, вы оказались в заброшенном городе вечером. Об этом городе говорили, что там бродят монстры по ночам. Вам надо где-то спрятаться, чтобы вас не нашли монстры. Вы решаете забежать в больницу. И вы там опять уснули. Пока вы спали настала ночь. Вы проснулись от громкого скрипа двери, вы увидели что все двери и окна закрыты. Окозалось что вы не одни находитесь в больнице. Вам надо осмотреться и вы увидели страшного монстра без глаз у которого были одни кости. И было пора бежать от монстра!</h3>
+			<div style="display: flex;justify-content: center;">
+				<button class="nxt" style="font-family: aaa; width:250px; height: 60px; font-size: 30px; border-radius: 10px; background: black; color: white; border: 2px gray solid;">
+					Next
+				</button> 
+			</div>
+			
+		</div>
+
+
+		<div class="start">
+			<h1>Try to escape from the hospital</h1>
+			<button class="btn" onclick="t()">Escape</button>
+		</div>
+
+		<div class="coridor">
+			<h1 style="color: white; text-align: center;">Найди лом и ключи в комнатах за дверями</h1>
+			<div class="door" style="left: 400px; top: 200px;">
+				
+			</div>
+			<div class="door" style="left: 700px; top: 200px;">
+				
+			</div>
+			<div class="door" style="left: 1000px; top: 200px;">
+				
+			</div>
+			<div class="door" style="left: 1300px; top: 200px;">
+				
+			</div>
+			<button class="ebtn" style="font-family: aaa; width:250px; height: 60px; font-size: 30px; border-radius: 10px; background: black; color: white; border: 2px gray solid; position: absolute; top: 800px; left: 1500px; display: none;">
+					Next
+			</button> 
+		</div>
+
+		<div class="room">
+			<div class="lom">
+				
+			</div>
+		</div>
+
+		<div class="room">
+			<div class="kfl">
+				
+			</div>
+		</div>
+
+		<div class="room">
+			<div class="kfd">
+				
+			</div>		
+		</div>
+
+		<div class="exit">
+			<button class="leave">Escape</button>
+			<h1 style="left: 470px; color: white; top:370px; position: absolute;">Нажми кнопку чтобы сбежать</h1>
+		</div>
+	</div>
+
+	<div class="finish">
+		<h3 style="color: white; margin-top: 450px; position: absolute; left: 750px">Поздравляю!Ты сбежал с больницы от монстра.</h3>
+	</div>
+
+	<div class="scream">
+		
+	</div>
+
+
+	<script type="text/javascript">
+		let start = document.querySelector(".start")
+		let btn = document.querySelector(".btn")
+		let cor = document.querySelector(".coridor")
+		let door = document.querySelectorAll(".door")
+		let room = document.querySelectorAll(".room")
+		let next = document.querySelector(".nxt")
+		let begin = document.querySelector(".begin")
+		let lom = document.querySelector(".lom")
+		let kfl = document.querySelector(".kfl")
+		let kfd = document.querySelector(".kfd")
+		let exit = document.querySelector(".exit")
+		let timer = document.querySelector(".timer")
+		let ebtn = document.querySelector(".ebtn")
+		let leave = document.querySelector(".leave")
+		let finish = document.querySelector(".finish")
+		let scream = document.querySelector(".scream")
+		let all = document.querySelector(".all")
+		let beg = document.querySelector(".beg")
+		let score = 0
+		let time = 45
+		let myInterval
+		let audio = document.createElement("AUDIO")
+		let f = document.createElement("AUDIO")
+        document.body.appendChild(audio);
+        audio.src = "s.mp3"
+        document.body.appendChild(f)
+        f.src = "f.mp3"
+
+
+		btn.onclick = function() {
+			start.style.display = "none"
+			cor.style.display = "block"
+			document.querySelector(".time").style.display = "block"
+			myInterval = setInterval(st, 1000)
+			setTimeout(stop, 45000)
+		}
+
+		beg.onclick = function() {
+			document.querySelector(".o").style.display = 'none'
+			begin.style.display = "block"
+			f.play()
+		}
+
+		door[3].onclick = function() {
+			cor.style.display = "none"
+			room[0].style.display = "block"
+			alert("Найди лом")
+		}
+		door[1].onclick = function() {
+			cor.style.display = "none"
+			room[1].style.display = "block"
+			alert("Найди ключ от замка")
+		}
+		door[2].onclick = function() {
+			cor.style.display = "none"
+			room[2].style.display = "block"
+			alert("Найди ключ от двери")
+		}
+
+		door[0].onclick = function() {
+			scream.style.display = "block"
+			cor.style.display = "none"
+			alert("Ты пришел прямо к монстру! Он тебя схавал.")
+			audio.play()
+		}
+
+		next.onclick = function() {
+			begin.style.display = "none"
+			start.style.display = "block"
+		}
+
+		lom.onclick = function() {
+			room[0].style.display = "none"
+			cor.style.display = "block"
+			door[3].style.display = "none"
+			score = score + 1
+			if(score == 3) {
+				ebtn.style.display = "block"
+			}
+		}
+
+		kfl.onclick = function() {
+			room[1].style.display = "none"
+			cor.style.display = "block"
+			door[1].style.display = "none"
+			score = score + 1
+			if(score == 3) {
+				ebtn.style.display = "block"
+			}
+		}
+
+		kfd.onclick = function() {
+			room[2].style.display = "none"
+			cor.style.display = "block"
+			door[2].style.display = "none"
+			score = score + 1
+			if(score == 3) {
+				ebtn.style.display = "block"
+			}
+		}
+
+		ebtn.onclick = function() {
+			cor.style.display = "none"
+			exit.style.display = "block"
+		}
+
+		leave.onclick = function() {
+			exit.style.display = "none"
+			finish.style.display = "block"
+			document.querySelector(".time").display = "none"
+			clearInterval(myInterval)
+			all.style.display = "none"
+		}
+		
+		function st() {
+			time = time - 1
+			timer.innerHTML = time
+
+			if (time == 0) {
+				all.style.display = "none"				
+				scream.style.display = "block"
+				audio.play()
+			}
+		}
+
+		function stop() {
+			clearInterval(myInterval)
+		}
+
+		
+		 
+
+		
+
+	</script>
+</body>
+</html>
